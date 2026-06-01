@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprende a Desenhar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+  <h1>🎨 Aprende a Desenhar</h1>
+ 
+  <!-- ============================
+       PASSO 1 — Fotografar o sujeito
+  ============================= -->
+  <div id="passo1">
+    <h2>Passo 1 — Fotografa o sujeito</h2>
+    <video id="video" width="400" height="300" autoplay muted></video>
+    <br>
+    <button onclick="capturarSujeito()">📸 Capturar Foto</button>
+  </div>
+ 
+  <!-- ============================
+       PASSO 2 — Mostrar esboço gerado pela IA
+  ============================= -->
+  <div id="passo2" style="display:none;">
+    <h2>Passo 2 — O teu esboço de referência</h2>
+    <p id="esboco-texto">A IA vai mostrar aqui a descrição do esboço...</p>
+    <!-- Quando tiveres geração de imagem, substitui o parágrafo por uma <img> -->
+    <br>
+    <button onclick="passarParaPasso3()">✏️ Já desenhei! Tirar foto ao meu desenho</button>
+  </div>
+ 
+  <!-- ============================
+       PASSO 3 — Fotografar o desenho feito
+  ============================= -->
+  <div id="passo3" style="display:none;">
+    <h2>Passo 3 — Fotografa o teu desenho</h2>
+    <video id="video2" width="400" height="300" autoplay muted></video>
+    <br>
+    <button onclick="capturarDesenho()">📸 Capturar Desenho</button>
+  </div>
+ 
+  <!-- ============================
+       RESULTADO — Feedback da IA
+  ============================= -->
+  <div id="resultado" style="display:none;">
+    <h2>Resultado</h2>
+    <p id="feedback-texto">O feedback da IA vai aparecer aqui...</p>
+    <br>
+    <button onclick="recomecar()">🔄 Recomeçar</button>
+  </div>
+ 
+  <script src="app.js"></script>
+</body>
+</html>
