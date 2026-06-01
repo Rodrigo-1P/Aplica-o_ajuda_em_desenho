@@ -61,7 +61,14 @@ async function chamarGemini(imagemBase64, prompt) {
  
   const dados = await resposta.json();
  
-  // Extrai o texto da resposta do Gemini
+  // Mostra a resposta completa no terminal para debug
+  console.log("Resposta Gemini:", JSON.stringify(dados, null, 2));
+ 
+  // Extrai o texto de forma segura
+  if (!dados.candidates || !dados.candidates[0]) {
+    throw new Error("Gemini não devolveu resposta: " + JSON.stringify(dados));
+  }
+ 
   return dados.candidates[0].content.parts[0].text;
 }
  
@@ -158,6 +165,15 @@ app.post("/comparar-desenho", async (req, res) => {
     });
  
     const dados = await resposta.json();
+ 
+    // Mostra a resposta completa no terminal para debug
+    console.log("Resposta Gemini comparar:", JSON.stringify(dados, null, 2));
+ 
+    // Extrai o texto de forma segura
+    if (!dados.candidates || !dados.candidates[0]) {
+      throw new Error("Gemini não devolveu resposta: " + JSON.stringify(dados));
+    }
+ 
     const feedback = dados.candidates[0].content.parts[0].text;
  
     res.json({ feedback });
