@@ -119,3 +119,32 @@ button:active {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
+ 
+/* ============================
+   BOTÃO SECUNDÁRIO (trocar câmara)
+============================= */
+.btn-secundario {
+  background-color: #888;
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+ 
+.btn-secundario:active {
+  background-color: #666;
+}
+ 
+/* ============================
+   BOTÕES DA CÂMARA (lado a lado)
+============================= */
+.botoes-camera {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+ 
+.botoes-camera .btn-secundario {
+  flex: 1;
+  margin-top: 0;
+}

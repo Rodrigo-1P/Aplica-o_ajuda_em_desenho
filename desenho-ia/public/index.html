@@ -10,20 +10,32 @@
  
   <h1>🎨 Aprende a Desenhar</h1>
  
-  <!-- LOADING — aparece enquanto a IA está a processar -->
+  <!-- LOADING -->
   <div id="loading" style="display:none;">
     <span>⏳</span>
-    A IA está a analisar...
+    A processar...
   </div>
  
   <!-- PASSO 1 — Fotografar o sujeito -->
   <div id="passo1" class="passo">
     <h2>Passo 1 — Fotografa o sujeito</h2>
     <video id="video" autoplay muted playsinline></video>
-    <button onclick="capturarSujeito()">📸 Capturar Foto</button>
+ 
+    <div class="botoes-camera">
+      <!-- Ligar/desligar — aparece sempre -->
+      <button id="btn-toggle" onclick="toggleCamera()" class="btn-secundario">
+        📷 Desligar câmara
+      </button>
+      <!-- Trocar câmara — só aparece se houver 2+ câmaras -->
+      <button id="btn-trocar" onclick="trocarCamera()" class="btn-secundario" style="display:none;">
+        🔄 Trocar câmara
+      </button>
+    </div>
+ 
+    <button id="btn-capturar" onclick="capturarSujeito()">📸 Capturar Foto</button>
   </div>
  
-  <!-- PASSO 2 — Mostrar esboço gerado pela IA -->
+  <!-- PASSO 2 — Mostrar esboço -->
   <div id="passo2" class="passo" style="display:none;">
     <h2>Passo 2 — O teu esboço de referência</h2>
     <div id="foto-referencia"></div>
@@ -31,14 +43,14 @@
     <button onclick="passarParaPasso3()">✏️ Já desenhei!</button>
   </div>
  
-  <!-- PASSO 3 — Fotografar o desenho feito -->
+  <!-- PASSO 3 — Fotografar o desenho -->
   <div id="passo3" class="passo" style="display:none;">
     <h2>Passo 3 — Fotografa o teu desenho</h2>
     <video id="video2" autoplay muted playsinline></video>
     <button onclick="capturarDesenho()">📸 Capturar Desenho</button>
   </div>
  
-  <!-- RESULTADO — Feedback da IA -->
+  <!-- RESULTADO -->
   <div id="resultado" class="passo" style="display:none;">
     <h2>Resultado ✨</h2>
     <p id="feedback-texto"></p>
@@ -48,4 +60,3 @@
   <script src="app.js"></script>
 </body>
 </html>
- 
